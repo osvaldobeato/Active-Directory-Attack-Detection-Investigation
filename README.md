@@ -52,3 +52,17 @@ This project demonstrates the ability to build an enterprise Windows environment
 | Hydra | Brute-force authentication testing |
 | Atomic Red Team | Simulated adversary techniques for detection validation |
 | VirtualBox | Hosted the Active Directory lab environment |
+
+---
+
+## Investigation Walkthrough
+
+This section documents the complete deployment of the Active Directory environment, attack simulation, and investigation process performed throughout the project.
+
+
+### Phase 1 – Building the Active Directory Environment
+
+The Active Directory environment was built to simulate a small enterprise Windows domain. Windows Server 2022 was promoted to a Domain Controller, Windows 10 was joined to the domain, and Splunk was configured to collect endpoint telemetry from the environment.
+
+The following screenshots document the initial deployment and validation of the lab infrastructure.
+
