@@ -36,3 +36,19 @@ This project demonstrates the ability to build an enterprise Windows environment
 - Threat Hunting
 - Security Event Correlation
 - MITRE ATT&CK Framework
+
+  ---
+
+## Tools Used
+
+| Tool | Purpose |
+|------|---------|
+| Windows Server 2022 | Active Directory Domain Controller |
+| Windows 10 | Domain-joined endpoint used for attack simulation |
+| Kali Linux | Attack platform for brute-force authentication testing |
+| Splunk Enterprise | Centralized log collection, search, and investigation |
+| Sysmon | Endpoint telemetry and process monitoring |
+| Splunk Universal Forwarder | Forwarded Windows logs to Splunk |
+| Hydra | Brute-force authentication testing |
+| Atomic Red Team | Simulated adversary techniques for detection validation |
+| VirtualBox | Hosted the Active Directory lab environment |
