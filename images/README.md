@@ -55,3 +55,7 @@ This folder contains the screenshots used throughout the project documentation.
 &nbsp;
 
 <img width="1920" height="1080" alt="PICTURE 13" src="https://github.com/user-attachments/assets/89a64643-2fce-4c70-9a45-a96fb643ec6d" />
+
+&nbsp;
+
+<img width="791" height="780" alt="Screenshot 2026-07-18 103809" src="https://github.com/user-attachments/assets/7c371be1-ff77-491e-b11e-9f012ae562ee" />
