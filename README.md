@@ -139,3 +139,64 @@ Executed Atomic Red Team test T1136.001 (Create Local Account) to simulate a MIT
 
 <img width="1920" height="1080" alt="PICTURE 13" src="https://github.com/user-attachments/assets/bbab2181-0a76-47c9-bbee-1c914d18da5b" />
 Splunk successfully detected the Atomic Red Team T1136.001 (Create Local Account) simulation by capturing the creation of the NewLocalUser account. This validates that the current detection pipeline is ingesting and identifying persistence-related activity. Simulated attacks like this can be used to evaluate detection coverage, identify monitoring blind spots, and improve detection engineering by creating or refining rules for techniques that are not currently detected.
+
+
+---
+
+## Indicators of Compromise (IOCs)
+
+The following indicators were identified during the attack simulation and investigation:
+
+- Multiple failed Windows authentication attempts generated during brute-force testing.
+- Successful authentication following valid credential discovery.
+- Windows Security Event IDs associated with authentication activity.
+- Sysmon process creation events related to attack execution.
+- Source IP address of the attacking Kali Linux system.
+- User accounts targeted during the brute-force attack.
+
+---
+
+## MITRE ATT&CK Mapping
+
+| Technique | ATT&CK ID |
+|-----------|-----------|
+| Brute Force | T1110 |
+| Valid Accounts | T1078 |
+| Remote Services (RDP) | T1021.001 |
+| Account Discovery | T1087 |
+
+---
+
+## Lab Challenges & Troubleshooting
+
+During the project, several challenges were encountered while simulating authentication attacks.
+
+- Crowbar did not successfully authenticate against the target environment, requiring additional troubleshooting.
+- Hydra was used as an alternative brute-force tool after validating connectivity and credentials.
+- Detection results were validated in Splunk to ensure Windows Security events were being collected correctly.
+- Troubleshooting the environment improved understanding of authentication logging, telemetry collection, and attack validation.
+
+---
+
+## Key Findings
+
+- Successfully deployed an enterprise-style Active Directory environment for security testing.
+- Verified Windows Security Events and Sysmon telemetry were forwarded to Splunk.
+- Successfully simulated brute-force authentication activity against the domain environment.
+- Investigated authentication events using Splunk searches and event correlation.
+- Validated detection visibility while identifying opportunities to improve monitoring coverage.
+
+---
+
+## Lessons Learned
+
+- Active Directory provides a realistic enterprise environment for SOC investigations and detection engineering.
+- Accurate log collection is essential for identifying authentication attacks and reconstructing attacker activity.
+- Attack simulation is valuable for validating detections and identifying monitoring gaps.
+- Troubleshooting infrastructure and security tooling is a normal part of defensive security operations and strengthens investigative skills.
+
+---
+
+## Conclusion
+
+This project demonstrates the ability to build and secure an enterprise Active Directory environment, simulate authentication attacks, investigate Windows security events, validate SIEM detections, and document findings using a structured SOC investigation workflow. The experience strengthened practical skills in Windows administration, attack simulation, log analysis, and detection engineering within a realistic enterprise lab.
