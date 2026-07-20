@@ -158,23 +158,29 @@ The following indicators were identified during the attack simulation and invest
 
 ## MITRE ATT&CK Mapping
 
-| Technique | ATT&CK ID |
-|-----------|-----------|
-| Brute Force | T1110 |
-| Valid Accounts | T1078 |
-| Remote Services (RDP) | T1021.001 |
-| Account Discovery | T1087 |
+| Tactic | Technique | ATT&CK ID |
+|-----------|-----------|-----------|
+| Credential Access | Brute Force | T1110 |
+| Defense Evasion/Presistence | Valid Accounts | T1078 |
+| Lateral Movement | Remote Services (RDP) | T1021.001 |
+| Discovery | Account Discovery | T1087 |
 
 ---
 
 ## Lab Challenges & Troubleshooting
 
-During the project, several challenges were encountered while simulating authentication attacks.
+### Challenge 1
 
-- Crowbar did not successfully authenticate against the target environment, requiring additional troubleshooting.
-- Hydra was used as an alternative brute-force tool after validating connectivity and credentials.
-- Detection results were validated in Splunk to ensure Windows Security events were being collected correctly.
-- Troubleshooting the environment improved understanding of authentication logging, telemetry collection, and attack validation.
+<img width="1920" height="1080" alt="Used Hydra to perform an RDP password attack against the domain-joined Windows endpoint  The attack successfully identified valid credentials and generated Windows Security Event Logs for investigation in Splunk" src="https://github.com/user-attachments/assets/62fa8764-6ac3-4103-ab3d-a106b0f20261" />
+Troubleshooting: The original lab walkthrough used Crowbar for the RDP attack. During testing, Crowbar's RDP module was incompatible with my Kali environment and did not successfully authenticate despite valid credentials. After validating RDP connectivity and credentials, I adapted the lab by using Hydra with a single-threaded configuration (-t 1 -W 3), which successfully completed the attack and generated the required Windows security events.
+
+&nbsp;
+
+### Challenge 2
+
+<img width="1920" height="1080" alt="PICTURE 11" src="https://github.com/user-attachments/assets/0090410c-9e81-4a48-a57f-41f9535f481e" />
+During the lab, authentication events were not appearing in Splunk. Investigation revealed that the Windows 10 endpoint and Splunk server had different system times. After synchronizing the VM clocks and restarting Splunk and the Universal Forwarder, the authentication events were indexed correctly.
+
 
 ---
 
@@ -194,9 +200,3 @@ During the project, several challenges were encountered while simulating authent
 - Accurate log collection is essential for identifying authentication attacks and reconstructing attacker activity.
 - Attack simulation is valuable for validating detections and identifying monitoring gaps.
 - Troubleshooting infrastructure and security tooling is a normal part of defensive security operations and strengthens investigative skills.
-
----
-
-## Conclusion
-
-This project demonstrates the ability to build and secure an enterprise Active Directory environment, simulate authentication attacks, investigate Windows security events, validate SIEM detections, and document findings using a structured SOC investigation workflow. The experience strengthened practical skills in Windows administration, attack simulation, log analysis, and detection engineering within a realistic enterprise lab.
